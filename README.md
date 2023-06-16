@@ -18,40 +18,55 @@ Here you could see the design of the movies pages:
 
 ![](resources/dreadful-cherry-tomatoes-movies.png)
 
-#### Considerations
 
-* Through [this Figma link (account required)](https://www.figma.com/file/OaRd9F0R43FQWTZQo6JO2Y/GW-867-Dreadful-Cherry-Tomatoes-challenge) or through [this ZIP](https://static.rviewer.io/challenges/assets/dreadful-cherry-tomatoes/assets.zip), you can download all the
-assets to start!
-* To obtain the data of the Movies, you have to request [this file](https://static.rviewer.io/challenges/datasets/dreadful-cherry-tomatoes/data.json)
-* Use SCSS or SASS to manage your stylesheets
-* Pay attention to hover effects (Movies cards)
+## App
 
-## Technical Requirements
+App component will be the one that wraps all the application. Here we will have the logic to fetch and filter the data.
 
-* Create reusable components
-* Create a **clean, maintainable and well-designed** code
-* Test your code until you are comfortable with that
+The code of the application will be difided in 3 main parts:
+- Header
+- Home
+- Footer
 
-To understand how you take decisions during the implementation, **please write a COMMENTS.md** file explaining some of
-the most important parts of the application. You would also be able to defend your code through
-[Rviewer](https://rviewer.io), once you submit your solution.
+## Header
 
----
+Header component will have the web logo and the input field that allows the user to filter movies.
 
-## How to submit your solution
+Here I have used **MUI** react library, to take an input field already created, with some styles and with the option to have placeholders and icon at the start of the input field.
 
-* Push your code to the `devel` branch - we encourage you to commit regularly to show your thinking process was.
-* **Create a new Pull Request** to `main` branch & **merge it**.
+## Footer
 
-Once merged you **won't be able to change or add** anything to your solution, so double-check that everything is as
-you expected!
+Footer component will be a simple component, that will display:
+- Web logo
+- App Store and Google Play buttons.
+- Copyright text info.
 
-Remember that **there is no countdown**, so take your time and implement a solution that you are proud!
 
----
+## Home
 
-<p align="center">
-  If you have any feedback or problem, <a href="mailto:help@rviewer.io">let us know!</a> 🤘
-  <br><br>
-  Made with ❤️ by <a href="https://rviewer.io">Rviewer</a>
-</p>
+Home component will be the one that wil have "the logic" of the application.
+
+We can split this component in two different simpler components:
+
+- Card
+- Pagination
+
+### Card
+
+Card component will be the one in charge to show the details of each movie. This component will show the movie poster, and the title, but will show more details when hovering the card.
+
+To do this, the component was created with the following structure:
+ - Background: A div that will have the poster movie.
+    - Content: Div that wraps the content taht will be shown.
+        - Title: Movie title
+        - Hover Module: Inside this `div` we will have the content that will be shown when hovering the card.
+            - Release year: Movie release year
+            - Description: Movie description
+            
+
+So, to do that effect, I neede to use CSS in order to show and hide the details while hovering the card.
+
+### Pagination
+
+Finally pagination module. This component will also use Pagination component from **MUI** and this will allow us to show just the movies needed on each page.
+
